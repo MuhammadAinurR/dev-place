@@ -5,7 +5,7 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class Category extends Model {
     static associate(models) {
-      Category.belongsToMany(models.Post, { foreignKey: 'categoryId', through: models.PostCategory })
+      Category.belongsToMany(models.Post, { through: models.PostCategory })
     }
   }
   Category.init({

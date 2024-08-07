@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Post extends Model {
     static associate(models) {
       Post.belongsTo(models.User, { foreignKey: 'userId' });
-      Post.belongsToMany(models.Category, { foreignKey: 'categoryId', through: models.PostCategory })
+      Post.belongsToMany(models.Category, { through: models.PostCategory })
     }
   }
   Post.init({

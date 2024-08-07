@@ -9,12 +9,12 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      postId: {
+      PostId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'Posts' }
       },
-      categoryId: {
+      CategoryId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'Categories' }
