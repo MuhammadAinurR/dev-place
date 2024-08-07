@@ -23,7 +23,8 @@ const getPosts = async (req, res, next) => {
 }
 
 const createPost = async (req, res, next) => {
-    const { userId, title, content, imgUrl, categoryIds } = req.body;
+    const { title, content, imgUrl, categoryIds } = req.body;
+    const { id: userId } = req.user;
     try {
         const post = await Post.create({ title, content, imgUrl, userId });
         if (categoryIds && categoryIds.length > 0) {
