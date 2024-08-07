@@ -41,7 +41,52 @@ const googleLogin = async (req, res, next) => {
             defaults: { username, email, password }
         });
         const access_token = signToken({ id: user.id });
-        res.status(200).json({ message: "Logged in as " + user.email, access_token, email: user.email, username: user.username })
+        res.status(200).json({ message: "Logged in as " + user.username, access_token, email: user.email, username: user.username })
+    } catch (error) {
+        next(error)
+    }
+}
+
+const githubLogin = async (req, res, next) => {
+    const { githubToken } = req.body;
+    try {
+        // get github token
+        const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                client_id: 'Ov23liby8cjlxlqUTDba',
+                client_secret: '9746601b2f85aaf0d503621e2075c7c985c057e3',
+                code: githubToken,
+            }),
+        });
+
+        const tokenData = await tokenResponse.json();
+        const accessToken = await tokenData.access_token;
+
+        // get github email from token
+        const userDataResponse = await fetch('https://api.github.com/user', {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/vnd.github+json',
+                'Authorization': `Bearer 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`,
+                'X-GitHub-Api-Version': '2022-11-28'
+            }
+        })
+        const userData = await userDataResponse.json()
+
+        // create jwt token from email
+        const { email, name: username } = userData
+        const password = Math.random().toString();
+        const [user, created] = await User.findOrCreate({
+            where: { email },
+            defaults: { username, email, password }
+        });
+        const access_token = signToken({ id: user.id });
+        res.status(200).json({ message: "Logged in as " + user.username, access_token, email: user.email, username: user.username })
     } catch (error) {
         next(error)
     }
@@ -57,4 +102,4 @@ const register = async (req, res, next) => {
     }
 }
 
-module.exports = { getUsers, login, googleLogin, register };
+module.exports = { getUsers, login, githubLogin, googleLogin, register };
