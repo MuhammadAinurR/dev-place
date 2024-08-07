@@ -4,9 +4,7 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class PostCategory extends Model {
-    static associate(models) {
-
-    }
+    static associate(models) { }
   }
   PostCategory.init({
     PostId: DataTypes.INTEGER,
