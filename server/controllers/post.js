@@ -34,10 +34,7 @@ const createPost = async (req, res, next) => {
                 })
             });
         }
-        res.status(201).json({
-            message: 'Post created successfully',
-            post
-        })
+        res.status(201).json({ message: 'Post created successfully' })
     } catch (error) {
         next(error)
     }
