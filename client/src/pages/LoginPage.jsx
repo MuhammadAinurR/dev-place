@@ -1,10 +1,35 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import request from "../utils/axios";
 import showToast from "../utils/toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
+import { useGoogleOneTapLogin } from '@react-oauth/google';
 
 export default () => {
+    const { search } = useLocation()
+    useEffect(() => {
+        if (search && search.split('=')[1]) {
+            const login = async () => {
+                try {
+                    const { data: response } = await request({
+                        url: 'users/github-login',
+                        method: 'post',
+                        data: { githubToken: search.split('=')[1] }
+                    })
+                    console.log(response)
+                    showToast({ message: response.message, type: 'success' })
+                    localStorage.setItem('token', response.access_token)
+                    localStorage.setItem('email', response.email)
+                    localStorage.setItem('username', response.username)
+                    navigate('/');
+                } catch (error) {
+                    showToast({ message: error.response?.data?.message });
+                }
+            }
+            login();
+        }
+    }, [])
+
     const [data, setData] = useState({ email: 'ainurmoh@gmail.com', password: 'rofiq1234' })
     const navigate = useNavigate();
     const handleChange = (e) => {
@@ -28,7 +53,6 @@ export default () => {
             localStorage.setItem('email', response.email)
             localStorage.setItem('username', response.username)
             navigate('/');
-            console.log(response)
         } catch (error) {
             console.log(error)
             showToast({ message: error.response?.data?.message || error.message, color: "error" });
@@ -46,11 +70,26 @@ export default () => {
             localStorage.setItem('token', response.access_token)
             localStorage.setItem('email', response.email)
             localStorage.setItem('username', response.username)
+            showToast({ message: response.message, type: 'success' })
             navigate('/')
         } catch (error) {
-            console.log(error)
+            showToast({ message: 'Login failed' })
         }
     }
+
+    useGoogleOneTapLogin({
+        onSuccess: handleCredentialResponse,
+        onError: () => {
+            console.log('Login Failed');
+        },
+    });
+
+    const loginWithGitHub = () => {
+        const clientID = 'Ov23liby8cjlxlqUTDba';
+        const redirectURI = 'http://localhost:5173/login';
+        window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientID}&redirect_uri=${redirectURI}`;
+    };
+
     return (
         <div className="bg-[#0E1217] w-screen h-screen p-5 flex flex-col justify-between">
             <p className="text-white text-xl">Dev Place</p>
@@ -69,6 +108,9 @@ export default () => {
                         }}
                     />;
                 </div>
+
+                {/* Github Login */}
+                <div className="bg-gray-700 text-white p-2 rounded-md text-center hover:cursor-pointer hover:bg-gray-800" onClick={loginWithGitHub}>Login with GitHub</div>;
 
                 <div className="flex items-center">
                     <div className="border-t border-[#2D323C] flex-grow"></div>
