@@ -30,7 +30,7 @@ export default () => {
         }
     }, [])
 
-    const [data, setData] = useState({ email: 'ainurmoh@gmail.com', password: 'rofiq1234' })
+    const [data, setData] = useState({ email: 'nea@gmail.com', password: 'nea1234' })
     const navigate = useNavigate();
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -119,8 +119,8 @@ export default () => {
                 </div>
 
                 <div className="grid gap-4 text-xl">
-                    <input id="email" name='email' className="bg-[#20252D] rounded-md px-5 py-2 text-white" type="text" placeholder="Email" value={data.email} onChange={handleChange} />
-                    <input id="password" name='password' className="bg-[#20252D] rounded-md px-5 py-2 text-white" type="password" placeholder="Password" value={data.password} onChange={handleChange} />
+                    <input id="email" name='email' className="bg-[#20252D] rounded-md px-5 py-2 text-white text-sm" type="text" placeholder="Email" value={data.email} onChange={handleChange} />
+                    <input id="password" name='password' className="bg-[#20252D] rounded-md px-5 py-2 text-white text-sm" type="password" placeholder="Password" value={data.password} onChange={handleChange} />
                 </div>
                 <div className="flex justify-between items-center my-3">
                     <p className="text-[#A8B3CF] font-normal underline">Forgot password?</p>

@@ -73,9 +73,9 @@ export default () => {
                     <div className="border-t border-[#2D323C] flex-grow"></div>
                 </div>
                 <div className="grid gap-4 text-xl">
-                    <input id="username" name='username' className="bg-[#20252D] rounded-xl px-5 py-2 text-white" type="text" placeholder="Username" value={data.username} onChange={handleChange} />
-                    <input id="email" name='email' className="bg-[#20252D] rounded-xl px-5 py-2 text-white" type="text" placeholder="Email" value={data.email} onChange={handleChange} />
-                    <input id="password" name='password' className="bg-[#20252D] rounded-xl px-5 py-2 text-white" type="password" placeholder="Password" value={data.password} onChange={handleChange} />
+                    <input id="username" name='username' className="bg-[#20252D] rounded-xl px-5 py-2 text-white text-sm" type="text" placeholder="Username" value={data.username} onChange={handleChange} />
+                    <input id="email" name='email' className="bg-[#20252D] rounded-xl px-5 py-2 text-white text-sm" type="text" placeholder="Email" value={data.email} onChange={handleChange} />
+                    <input id="password" name='password' className="bg-[#20252D] rounded-xl px-5 py-2 text-white text-sm" type="password" placeholder="Password" value={data.password} onChange={handleChange} />
                 </div>
                 <p className="text-[#CED6E5]">Your email will be used to send you product and community updates</p>
                 <div className="border-t border-[#2D323C] flex-grow"></div>

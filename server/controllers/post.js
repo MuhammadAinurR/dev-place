@@ -1,8 +1,10 @@
+const { Op } = require('sequelize');
 const { User, Category, Post, PostCategory } = require('../models');
 
 const getPosts = async (req, res, next) => {
+    const { filter, search, userFilter } = req.query;
     try {
-        const posts = await Post.findAll({
+        let params = {
             include: [
                 {
                     model: Category,
@@ -15,7 +17,9 @@ const getPosts = async (req, res, next) => {
                 }
             ],
             order: [['createdAt', 'DESC']]
-        });
+        }
+        if (search) params.where = { title: { [Op.iLike]: `%${search}%` } }
+        const posts = await Post.findAll(params);
         res.status(200).json(posts)
     } catch (error) {
         next(error)
