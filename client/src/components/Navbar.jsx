@@ -33,9 +33,9 @@ const Navbar = () => {
     }, []);
 
     // Handle search query
-    // useEffect(() => {
-    //     nav("/?search=" + search);
-    // }, [search, nav]);
+    useEffect(() => {
+        nav("/?search=" + search);
+    }, [search, nav]);
 
     // Handle keyboard shortcut
     useEffect(() => {
@@ -74,7 +74,7 @@ const Navbar = () => {
         <div className='sticky top-0'>
             <nav className="bg-[#0F1218] h-[6vh]">
                 <div className="w-full px-5">
-                    <div className="relative grid grid-cols-3 items-center h-12">
+                    <div className="relative grid grid-cols-3 items-center h-12 pt-2">
 
                         {/* Logo */}
                         <Link to='/' className="text-[#FFFFFF] text-lg font-bold">Dev <span className='font-extralight text-[#A9AAAB]'>Place</span></Link>
@@ -96,7 +96,6 @@ const Navbar = () => {
                                         id="default-search"
                                         className="block w-full p-1 ps-10 text-sm rounded-lg bg-[#1D1F25] autofill:bg-[#1D1F25] outline-none border text-white border-transparent focus:border-[#383D48]"
                                         placeholder="Quick Search...                              ⌘ + K"
-                                        required
                                         ref={searchInputRef} // Attach the ref here for command k or ctrl k pliss eeellppp
                                     />
                                 </div>
@@ -147,7 +146,7 @@ const Navbar = () => {
                                                 Post Somehing?
                                             </NavLink>
                                             <NavLink
-                                                to="/my-posts"
+                                                to="/?myPosts=true"
                                                 className="block px-4 py-2 text-sm hover:text-[#FFFFFF] hover:bg-[#282C34]"
                                                 role="menuitem"
                                                 tabIndex="-1"

@@ -4,5 +4,98 @@
     },
     {
         "name": "css"
+    },
+    {
+        "name": "javascript"
+    },
+    {
+        "name": "typescript"
+    },
+    {
+        "name": "python"
+    },
+    {
+        "name": "java"
+    },
+    {
+        "name": "c#"
+    },
+    {
+        "name": "c++"
+    },
+    {
+        "name": "ruby"
+    },
+    {
+        "name": "php"
+    },
+    {
+        "name": "swift"
+    },
+    {
+        "name": "kotlin"
+    },
+    {
+        "name": "sql"
+    },
+    {
+        "name": "mongodb"
+    },
+    {
+        "name": "postgresql"
+    },
+    {
+        "name": "mysql"
+    },
+    {
+        "name": "graphql"
+    },
+    {
+        "name": "docker"
+    },
+    {
+        "name": "kubernetes"
+    },
+    {
+        "name": "aws"
+    },
+    {
+        "name": "azure"
+    },
+    {
+        "name": "google-cloud"
+    },
+    {
+        "name": "node.js"
+    },
+    {
+        "name": "react"
+    },
+    {
+        "name": "vue.js"
+    },
+    {
+        "name": "angular"
+    },
+    {
+        "name": "svelte"
+    },
+    {
+        "name": "flutter"
+    },
+    {
+        "name": "dart"
+    },
+    {
+        "name": "tensorflow"
+    },
+    {
+        "name": "pytorch"
+    },
+    {
+        "name": "scala"
+    },
+    {
+        "name": "r"
     }
 ]

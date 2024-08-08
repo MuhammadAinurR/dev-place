@@ -2,7 +2,7 @@ const { Op } = require('sequelize');
 const { User, Category, Post, PostCategory } = require('../models');
 
 const getPosts = async (req, res, next) => {
-    const { category, search, userFilter } = req.query;
+    const { category, search, myPosts } = req.query;
     try {
         let params = {
             include: [
@@ -20,6 +20,7 @@ const getPosts = async (req, res, next) => {
         }
         if (search) params.where = { title: { [Op.iLike]: `%${search}%` } }
         if (category) params.include[0].where = { id: category }
+        if (myPosts) params.include[1].where = { id: req.user.id }
         const posts = await Post.findAll(params);
         res.status(200).json(posts)
     } catch (error) {
@@ -47,4 +48,16 @@ const createPost = async (req, res, next) => {
     }
 }
 
-module.exports = { createPost, getPosts };
+const deletePost = async (req, res, next) => {
+    const { id } = req.params;
+    try {
+        const post = await Post.findByPk(id);
+        if (!post) throw { name: 'NotFound' };
+        await post.destroy();
+        res.status(200).json({ message: `${post.title} success to delete` });
+    } catch (error) {
+        next(error);
+    }
+}
+
+module.exports = { createPost, getPosts, deletePost };

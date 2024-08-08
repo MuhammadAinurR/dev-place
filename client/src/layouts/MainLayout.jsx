@@ -6,7 +6,7 @@ export default () => {
         <>
             <Navbar />
             <div className="flex h-[94vh]">
-                <div className="w-1/6 bg-[#0F1218] border border-[#2D323C] text-[#A8B3CF] p-5 text-sm">
+                <div className="w-[13%] bg-[#0F1218] border border-[#2D323C] text-[#A8B3CF] p-5 text-sm">
                     <Link to='/' className="hover:text-white hover:bg-[#2D323C]">My Feed</Link>
                     <br />
                     <br />
@@ -22,10 +22,13 @@ export default () => {
                     <p>Ai</p>
                     <p className="hover:text-white hover:bg-[#2D323C]">- Chat</p>
                     <p className="hover:text-white hover:bg-[#2D323C]">- Code Solver</p>
-                    <p className="hover:text-white hover:bg-[#2D323C]">- Guides</p>
-                    <p className="hover:text-white hover:bg-[#2D323C]">- Code Language Convert</p>
                     <div>
-
+                        <Link to='/guide' className="hover:text-white hover:bg-[#2D323C]">- Guides</Link>
+                    </div>
+                    <div>
+                        <Link to='/code-converter' className="hover:text-white hover:bg-[#2D323C]">- Code Language Convert</Link>
+                    </div>
+                    <div>
                         <Link to='/component-generator' className="hover:text-white hover:bg-[#2D323C]">- Component Generator</Link>
                     </div>
                     <br />
@@ -34,7 +37,7 @@ export default () => {
                     <p className="hover:text-white hover:bg-[#2D323C]">- History</p>
 
                 </div>
-                <div className="w-5/6 overflow-y-scroll bg-[#0E1217]">
+                <div className="w-[87%] overflow-y-scroll bg-[#0E1217]">
                     <Outlet />
                 </div>
             </div>

@@ -3,6 +3,11 @@
         "username": "Nea",
         "email": "nea@gmail.com",
         "password": "nea1234"
+    },
+    {
+        "username": "Visitor",
+        "email": "visitor@gmail.com",
+        "password": "visitor1234"
     }
 
 ]

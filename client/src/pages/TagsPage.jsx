@@ -19,7 +19,7 @@ export default () => {
     return (
         <div className="p-5">
             <p className="text-white font-bold p">All tags</p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
             {categories.map((e, i) => {
                 console.log(e.name)
                 return (

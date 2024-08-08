@@ -10,8 +10,8 @@ function App() {
   return (
     <>
       <ToastContainer />
-      <GoogleOAuthProvider clientId="307747605125-ipj32ju7dca41cr242o3qbc42a668h3g.apps.googleusercontent.com">
-      <RouterProvider router={router}/>
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+        <RouterProvider router={router} />
       </GoogleOAuthProvider>
     </>
   )

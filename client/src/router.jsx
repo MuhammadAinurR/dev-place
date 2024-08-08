@@ -6,6 +6,9 @@ import RegisterPage from "./pages/RegisterPage";
 import TagsPage from "./pages/TagsPage";
 import PostForm from "./pages/PostForm";
 import ComponentGenerator from "./pages/ComponentGenerator";
+import CodeConverter from "./pages/CodeConverter";
+import Guides from "./pages/Guides";
+
 
 const router = createBrowserRouter([
     {
@@ -47,6 +50,14 @@ const router = createBrowserRouter([
             {
                 path: 'component-generator',
                 element: <ComponentGenerator />
+            },
+            {
+                path: 'code-converter',
+                element: <CodeConverter />
+            },
+            {
+                path: 'guide',
+                element: <Guides />
             }
         ]
     },

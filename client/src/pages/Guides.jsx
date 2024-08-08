@@ -19,7 +19,7 @@ export default () => {
         setLoading(true);
         setError('');
         try {
-            const response = await request.post('gemini/component-generator', { input });
+            const response = await request.post('gemini/guide', { input });
             setComponentCode(response.data);
         } catch (err) {
             setError('An error occurred while fetching the component.');
@@ -28,35 +28,18 @@ export default () => {
         }
     };
 
-    function excludeFirstAndLastLine(text) {
-        // Split the text into lines
-        const lines = text.split('\n');
-
-        // Check if there are enough lines to exclude
-        if (lines.length <= 2) {
-            return ''; // Not enough lines to exclude the first and last line
-        }
-
-        // Remove the first and last line
-        const newLines = lines.slice(1, -1);
-
-        // Join the remaining lines into a single string
-        return newLines.join('\n');
-    }
-
-
     return (
         <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4 text-white">Component Generator</h1>
+            <h1 className="text-2xl font-bold mb-4 text-white">Guides Generator</h1>
             <div className="mb-4">
-                <label htmlFor="input" className="block text-sm font-medium text-white">Enter component type:</label>
+                <label htmlFor="input" className="block text-sm font-medium text-white">Do not suffer anymore, do you need something?:</label>
                 <input
                     name='input'
                     type="text"
                     value={input}
                     onChange={handleInputChange}
                     className="block w-full p-2 ps-4 mt-3 text-sm rounded-lg bg-[#1D1F25] autofill:bg-[#1D1F25] outline-none border text-white border-transparent focus:border-[#383D48]"
-                    placeholder="Product Card"
+                    placeholder="Simple express rest api"
                 />
             </div>
             <button
@@ -69,22 +52,21 @@ export default () => {
             {error && <div className="mt-4 text-red-500">{error}</div>}
             {componentCode &&
                 <div className="mt-4">
-                    <h2 className="text-xl font-semibold mb-2 text-white">Generated Component Code:</h2>
+                    <h2 className="text-xl font-semibold mb-2 text-white">Generated Guide</h2>
                     <pre className="rounded-md overflow-x-auto">
                         <div className="flex justify-between px-4 pt-1 text-white text-xs items-cente bg-gray-500">
-                            <p className="text-sm">Example code</p>
+                            <p className="text-sm">Your solution is here!</p>
                             <button onClick={() => {
-                                navigator.clipboard.writeText(excludeFirstAndLastLine(componentCode));
+                                navigator.clipboard.writeText(componentCode);
                                 showToast({ message: 'success copy the code', type: 'success' })
-                            }} className="py-1 inline-flex items-center gap-1">Copy code</button>
+                            }} className="py-1 inline-flex items-center gap-1">Copy guide</button>
                         </div>
                         <SyntaxHIghlighter
-                            language="javascript"
                             style={atomOneDark}
                             customStyle={{ padding: '25px' }}
                             wrapLongLines={true}
                         >
-                            {excludeFirstAndLastLine(componentCode)}
+                            {componentCode}
                         </SyntaxHIghlighter>
 
 

@@ -1,0 +1,66 @@
+[
+    {
+      "userId": 1,
+      "title": "hello world",
+      "content": "writing hello hello",
+      "imgUrl": "https://miro.medium.com/v2/resize:fit:1024/0*4ty0Adbdg4dsVBo3.png",
+      "createdAt": "2024-08-08 06:44:50.006000 +00:00",
+      "updatedAt": "2024-08-08 06:44:50.006000 +00:00"
+    },
+    {
+      "userId": 1,
+      "title": "Java Cheat Sheet",
+      "content": "this is java bro",
+      "imgUrl": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/1c06854137036cb1d393a36894828a53?_a=AQAEuiZ",
+      "createdAt": "2024-08-08 06:48:29.768000 +00:00",
+      "updatedAt": "2024-08-08 06:48:29.768000 +00:00"
+    },
+    {
+      "userId": 1,
+      "title": "50 Best Websites for Web",
+      "content": "Welcome to the best websites where to find examples and ideas for web design inspiration. Use them to identify layout styles and color schemes that you like. Quickly get over creator's block and start filling that blank page.",
+      "imgUrl": "https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fu0eshgt1vzsvtq8aww25.jpg",
+      "createdAt": "2024-08-08 06:49:07.971000 +00:00",
+      "updatedAt": "2024-08-08 06:49:07.971000 +00:00"
+    },
+    {
+      "userId": 1,
+      "title": "How To Make Your Boring Terminal So Much Better",
+      "content": "Learn how to customize your boring default terminal to boost your productivity. Discover useful terminal commands for navigation and shortcuts to enhance your terminal experience.",
+      "imgUrl": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/562545eeeb25455a95babe2f40f6619f?_a=AQAEuiZ",
+      "createdAt": "2024-08-08 06:49:48.204000 +00:00",
+      "updatedAt": "2024-08-08 06:49:48.204000 +00:00"
+    },
+    {
+      "userId": 1,
+      "title": "Install Docmost - Open Source Notion Clone",
+      "content": "TLDRDocMost is an open-source alternative to Notion, aimed at providing a self-hosted knowledge base tool. The guide walks through setting up DocMost on a server using Docker and Traefik for SSL certificate management. It covers getting a root server, setting up DNS, installing DocMost, configuring Docker Compose, and details Show more",
+      "imgUrl": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/e58ee4ec1ef61dccbdf526409a9144eb?_a=AQAEuiZ",
+      "createdAt": "2024-08-08 06:50:16.533000 +00:00",
+      "updatedAt": "2024-08-08 06:50:16.533000 +00:00"
+    },
+    {
+      "userId": 2,
+      "title": "React Design Patterns",
+      "content": "TLDRReact design patterns are essential for frontend development as they offer solutions to recurring challenges in component design. They promote consistency, modularity, and scalability by simplifying state management, logic, and element composition. Examples include custom hooks, higher-order components, and prop-based rendering Show more",
+      "imgUrl": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/19d341efef593c00631e79e0707031a7?_a=AQAEuiZ",
+      "createdAt": "2024-08-08 07:25:18.518000 +00:00",
+      "updatedAt": "2024-08-08 07:25:18.518000 +00:00"
+    },
+    {
+      "userId": 2,
+      "title": "Mastering Next.js: Structuring Your Large-Scale Project for Success",
+      "content": "Introduction As the digital landscape evolves, building robust and scalable web applications has become essential. Next.js, a popular React framework, offers powerful features to help developers create dynamic and efficient applications. However, as your Next.js project grows, maintaining a clean and organized codebase becomes crucial.",
+      "imgUrl": "https://res.cloudinary.com/daily-now/image/upload/s--ClrlWFm6--/f_auto/v1722579218/posts/GaZxO2biI",
+      "createdAt": "2024-08-08 07:26:01.149000 +00:00",
+      "updatedAt": "2024-08-08 07:26:01.149000 +00:00"
+    },
+    {
+      "userId": 2,
+      "title": "\uD83D\uDDA5\uFE0F Windows 11 Clone with React.js",
+      "content": "TLDRA developer created a Windows 11 clone web app using React.js, mimicking various Windows 11 functions like an interactive desktop environment, taskbar with start menu, and applications such as Chrome, Calculator, and VS Code. Other features include a responsive frontend and a simulated login screen. The technical stack includes Show more",
+      "imgUrl": "https://res.cloudinary.com/daily-now/image/upload/f_auto,q_auto/v1/posts/8142c8afade206bc7bffd7e8d12ff095?_a=AQAEuiZ",
+      "createdAt": "2024-08-08 07:26:33.320000 +00:00",
+      "updatedAt": "2024-08-08 07:26:33.320000 +00:00"
+    }
+  ]

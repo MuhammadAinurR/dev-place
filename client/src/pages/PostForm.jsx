@@ -56,7 +56,7 @@ export default () => {
     };
 
     return (
-        <div className="w-screen h-[80vh] flex justify-center items-center text-white">
+        <div className="h-[80vh] flex justify-center items-center text-white">
             <form className="max-w-sm mx-auto w-full" onSubmit={handleSubmit}>
                 <h1 className="text-3xl pb-10 text-center">Add Articles</h1>
 
