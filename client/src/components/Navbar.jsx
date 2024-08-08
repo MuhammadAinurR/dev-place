@@ -138,7 +138,7 @@ const Navbar = () => {
 
                                         >
                                             <NavLink
-                                                to="/posts"
+                                                to="/post"
                                                 className="block px-4 py-2 text-sm hover:text-[#FFFFFF] hover:bg-[#282C34]"
                                                 role="menuitem"
                                                 tabIndex="-1"

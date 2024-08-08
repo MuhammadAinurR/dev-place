@@ -29,6 +29,7 @@ const getPosts = async (req, res, next) => {
 
 const createPost = async (req, res, next) => {
     const { title, content, imgUrl, categoryIds } = req.body;
+    console.log(req.body)
     const { id: userId } = req.user;
     try {
         const post = await Post.create({ title, content, imgUrl, userId });
@@ -36,7 +37,7 @@ const createPost = async (req, res, next) => {
             categoryIds.forEach(element => {
                 PostCategory.create({
                     PostId: post.id,
-                    CategoryId: element
+                    CategoryId: +element
                 })
             });
         }

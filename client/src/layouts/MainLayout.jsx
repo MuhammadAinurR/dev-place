@@ -24,6 +24,10 @@ export default () => {
                     <p className="hover:text-white hover:bg-[#2D323C]">- Code Solver</p>
                     <p className="hover:text-white hover:bg-[#2D323C]">- Guides</p>
                     <p className="hover:text-white hover:bg-[#2D323C]">- Code Language Convert</p>
+                    <div>
+
+                        <Link to='/component-generator' className="hover:text-white hover:bg-[#2D323C]">- Component Generator</Link>
+                    </div>
                     <br />
                     <p>Activity</p>
                     <p className="hover:text-white hover:bg-[#2D323C]">- Bookmarks</p>

@@ -4,6 +4,8 @@ import HomePage from "./pages/HomePage";
 import MainLayout from "./layouts/MainLayout";
 import RegisterPage from "./pages/RegisterPage";
 import TagsPage from "./pages/TagsPage";
+import PostForm from "./pages/PostForm";
+import ComponentGenerator from "./pages/ComponentGenerator";
 
 const router = createBrowserRouter([
     {
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
             {
                 path: 'tags',
                 element: <TagsPage />
+            },
+            {
+                path: 'post',
+                element: <PostForm />
+            },
+            {
+                path: 'component-generator',
+                element: <ComponentGenerator />
             }
         ]
     },
