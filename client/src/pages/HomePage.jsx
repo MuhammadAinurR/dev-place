@@ -4,23 +4,32 @@ import { formatRelativeTime } from "../utils/relativeTime";
 import { useLocation } from "react-router-dom";
 
 export default () => {
-    const { search } = useLocation();
+    const { search, category } = useLocation();
     const [data, setData] = useState([]);
     useEffect(() => {
+        console.log({category, search})
         console.log('hello')
         const fetchData = async () => {
             try {
-                let endpoint = `/posts`;
-                if (search) endpoint += `?search=${search.split('=')[1]}`;
-                console.log(endpoint)
+                let endpoint = '/posts';
+                if (search) {
+                    const searchParams = new URLSearchParams(search);
+                    if (searchParams.has('category')) {
+                        endpoint += `?category=${searchParams.get('category')}`;
+                    } else if (searchParams.has('search')) {
+                        endpoint += `?search=${searchParams.get('search')}`;
+                    }
+                }
+        
+                console.log(endpoint);
                 const { data } = await request.get(endpoint);
-                setData(data)
+                setData(data);
             } catch (error) {
-                console.log(error)
+                console.log(error);
             }
-        }
+        };
         fetchData()
-    }, [search])
+    }, [search, category])
     console.log(data)
     return (
         <div className={`bg-[#0E1217] ${data.length ? '' : 'h-screen'}`}>

@@ -138,34 +138,34 @@ const Navbar = () => {
 
                                         >
                                             <NavLink
-                                                to="/cms/add-article"
+                                                to="/posts"
                                                 className="block px-4 py-2 text-sm hover:text-[#FFFFFF] hover:bg-[#282C34]"
                                                 role="menuitem"
                                                 tabIndex="-1"
                                                 onClick={() => setIsMenuOpen(false)}
                                             >
-                                                Post Article
+                                                Post Somehing?
                                             </NavLink>
                                             <NavLink
-                                                to="/cms/my-articles"
+                                                to="/my-posts"
                                                 className="block px-4 py-2 text-sm hover:text-[#FFFFFF] hover:bg-[#282C34]"
                                                 role="menuitem"
                                                 tabIndex="-1"
                                                 onClick={() => setIsMenuOpen(false)}
                                             >
-                                                My Articles
+                                                My Posts
                                             </NavLink>
                                             <NavLink
-                                                to="/cms/all-articles"
+                                                to="/"
                                                 className="block px-4 py-2 text-sm hover:text-[#FFFFFF] hover:bg-[#282C34]"
                                                 role="menuitem"
                                                 tabIndex="-1"
                                                 onClick={() => setIsMenuOpen(false)}
                                             >
-                                                All Articles
+                                                Explore
                                             </NavLink>
                                             <NavLink
-                                                to="/cms/all-categories"
+                                                to="/tags"
                                                 className="block px-4 py-2 text-sm hover:text-[#FFFFFF] hover:bg-[#282C34]"
                                                 role="menuitem"
                                                 tabIndex="-1"
