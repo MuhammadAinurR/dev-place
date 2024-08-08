@@ -32,7 +32,7 @@ const googleLogin = async (req, res, next) => {
     try {
         const ticket = await client.verifyIdToken({
             idToken: googleToken,
-            audience: '307747605125-ipj32ju7dca41cr242o3qbc42a668h3g.apps.googleusercontent.com'
+            audience: process.env.GOOGLE_AUDIENCE
         })
         const { email, name: username } = ticket.getPayload()
         const password = Math.random().toString();
@@ -58,8 +58,8 @@ const githubLogin = async (req, res, next) => {
                 'Accept': 'application/json',
             },
             body: JSON.stringify({
-                client_id: 'Ov23liby8cjlxlqUTDba',
-                client_secret: '9746601b2f85aaf0d503621e2075c7c985c057e3',
+                client_id: process.env.GITHUB_CLIENT_ID,
+                client_secret: process.env.GITHUB_CLIENT_SECRET,
                 code: githubToken,
             }),
         });
