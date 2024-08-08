@@ -85,7 +85,7 @@ export default () => {
     });
 
     const loginWithGitHub = () => {
-        const clientID = 'Ov23liby8cjlxlqUTDba';
+        const clientID = import.meta.env.VITE_GITHUB_CLIENT_ID;
         const redirectURI = 'http://localhost:5173/login';
         window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientID}&redirect_uri=${redirectURI}`;
     };
