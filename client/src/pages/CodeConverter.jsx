@@ -43,35 +43,30 @@ export default () => {
 
 
     function excludeFirstAndLastLine(text) {
-        // Split the text into lines
         const lines = text.split('\n');
 
-        // Check if there are enough lines to exclude
         if (lines.length <= 2) {
-            return ''; // Not enough lines to exclude the first and last line
+            return '';
         }
 
-        // Remove the first and last line
         const newLines = lines.slice(1, -1);
 
-        // Join the remaining lines into a single string
         return newLines.join('\n');
     }
     return (
         <div className="flex flex-col gap-5">
-
             <p className="text-white font-bold text-3xl">Code Converter</p>
-            <div className="mb-4">
+            <div className="mb-4 flex flex-col gap-4">
                 <label htmlFor="input" className="block text-sm font-medium text-white">Enter code:</label>
                 <input
                     name='input'
                     type="text"
                     value={input}
                     onChange={handleInputChange}
-                    className="block w-full p-2 ps-4 mt-3 text-sm rounded-lg bg-[#1D1F25] autofill:bg-[#1D1F25] outline-none border text-white border-transparent focus:border-[#383D48]"
+                    className="block w-full p-2 ps-4 text-sm rounded-lg bg-[#1D1F25] autofill:bg-[#1D1F25] outline-none border text-white border-transparent focus:border-[#383D48]"
                     placeholder={`print("hello world")`}
                 />
-                <label htmlFor="before" className="block mb-2 text-sm font-medium text-gray-500">Categories</label>
+                <label htmlFor="before" className="block text-sm font-medium text-gray-500">Categories</label>
                 <select
                     id="before"
                     name="before"
@@ -81,7 +76,7 @@ export default () => {
                     <option value='' name='categoryId'>-- Select Code Language --</option>
                     {code.map((e, i) => <option value={e} key={i} name='categoryId'>{e}</option>)}
                 </select>
-                <label htmlFor="after" className="block mb-2 text-sm font-medium text-gray-500">Categories</label>
+                <label htmlFor="after" className="block text-sm font-medium text-gray-500">Categories</label>
                 <select
                     id="after"
                     name="after"
@@ -119,9 +114,6 @@ export default () => {
                         >
                             {excludeFirstAndLastLine(componentCode)}
                         </SyntaxHIghlighter>
-
-
-
                     </pre>
                 </div>
             }

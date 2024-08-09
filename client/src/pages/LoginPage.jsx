@@ -16,7 +16,6 @@ export default () => {
                         method: 'post',
                         data: { githubToken: search.split('=')[1] }
                     })
-                    console.log(response)
                     showToast({ message: response.message, type: 'success' })
                     localStorage.setItem('token', response.access_token)
                     localStorage.setItem('email', response.email)
@@ -80,7 +79,7 @@ export default () => {
     useGoogleOneTapLogin({
         onSuccess: handleCredentialResponse,
         onError: () => {
-            console.log('Login Failed');
+            showToast({ message: 'Login failed' })
         },
     });
 

@@ -29,7 +29,6 @@ export default () => {
 
         try {
             const endpoint = `/posts`;
-            console.log(data)
             const response = await request.post(endpoint, data, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
@@ -39,10 +38,8 @@ export default () => {
                 imgUrl: '',
                 Categories: []
             })
-            console.log('Article added:', response.data);
             showToast({ message: `${data.title} successfully added`, type: 'success' })
         } catch (error) {
-            console.log('Error adding article:', error);
             error.response.data.message.forEach(e => showToast({ message: e }))
         }
     };

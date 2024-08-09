@@ -35,7 +35,6 @@ export default () => {
 
         fetchData();
     }, []);
-    console.log(data)
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -44,11 +43,9 @@ export default () => {
             const response = await request.put(endpoint, data, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
-            console.log('Article added:', response.data);
             showToast({ message: `${data.title} successfully edited`, type: 'success' })
             nav('/?myPosts=true')
         } catch (error) {
-            console.log('Error adding article:', error);
             error.response.data.message.forEach(e => showToast({ message: e }))
         }
     };
