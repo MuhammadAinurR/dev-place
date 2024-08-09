@@ -4,8 +4,11 @@ import showToast from "../utils/toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { useGoogleOneTapLogin } from '@react-oauth/google';
+import { useDispatch } from "react-redux";
+import { setUsername } from "../userSlice";
 
 export default () => {
+    const dispatch = useDispatch();
     const { search } = useLocation()
     useEffect(() => {
         if (search && search.split('=')[1]) {
@@ -19,7 +22,7 @@ export default () => {
                     showToast({ message: response.message, type: 'success' })
                     localStorage.setItem('token', response.access_token)
                     localStorage.setItem('email', response.email)
-                    localStorage.setItem('username', response.username)
+                    dispatch(setUsername(response.username))
                     navigate('/');
                 } catch (error) {
                     showToast({ message: error.response?.data?.message });
@@ -29,7 +32,7 @@ export default () => {
         }
     }, [])
 
-    const [data, setData] = useState({ email: 'nea@gmail.com', password: 'nea1234' })
+    const [data, setData] = useState({ email: 'visitor@gmail.com', password: 'visitor1234' })
     const navigate = useNavigate();
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -50,7 +53,7 @@ export default () => {
             showToast({ message: response.message, type: 'success' })
             localStorage.setItem('token', response.access_token)
             localStorage.setItem('email', response.email)
-            localStorage.setItem('username', response.username)
+            dispatch(setUsername(response.username))
             navigate('/');
         } catch (error) {
             console.log(error)
@@ -68,7 +71,7 @@ export default () => {
             })
             localStorage.setItem('token', response.access_token)
             localStorage.setItem('email', response.email)
-            localStorage.setItem('username', response.username)
+            dispatch(setUsername(response.username))
             showToast({ message: response.message, type: 'success' })
             navigate('/')
         } catch (error) {

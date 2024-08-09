@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+    const username = useSelector((state) => state.user.username)
     const nav = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [search, setSearch] = useState("");
@@ -108,7 +110,7 @@ const Navbar = () => {
                                 <Link to='/login' className='text-white'>Login</Link>
                                 :
                                 <div className="flex items-center sm:static sm:inset-auto">
-                                    <p className="text-gray-100 hidden md:block">{localStorage.getItem('username') !== 'null' ? localStorage.getItem('username') : localStorage.getItem('email')}</p>
+                                    <p className="text-gray-100 hidden md:block">{username}</p>
                                     <div className="relative ml-3 bg-[#1D1F24]">
                                         <button
                                             type="button"
