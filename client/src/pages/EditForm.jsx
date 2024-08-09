@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import request from "../utils/axios";
 import showToast from "../utils/toast";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default () => {
+    const postId = useParams().id;
     const [categories, setCategories] = useState([]);
     const [data, setData] = useState({
         title: '',
@@ -10,12 +12,22 @@ export default () => {
         imgUrl: '',
         Categories: []
     });
+
+    const nav = useNavigate();
     useEffect(() => {
         const fetchData = async () => {
             try {
                 let endpoint = `/categories`;
-                const { data } = await request.get(endpoint);
+                const { data } = await request.get(endpoint,{
+                    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+                });
                 setCategories(data);
+                let postEndpoint = `/posts/${postId}`
+                const { data: postData } = await request.get(postEndpoint,{
+                    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+                })
+                const { title, content, imgUrl, Categories } = postData;
+                setData({ title, content, imgUrl, Categories })
             } catch (error) {
                 console.log(error);
             }
@@ -23,24 +35,18 @@ export default () => {
 
         fetchData();
     }, []);
-
+    console.log(data)
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
-            const endpoint = `/posts`;
-            console.log(data)
-            const response = await request.post(endpoint, data, {
+            const endpoint = `/posts/${postId}`;
+            const response = await request.put(endpoint, data, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
-            setData({
-                title: '',
-                content: '',
-                imgUrl: '',
-                Categories: []
-            })
             console.log('Article added:', response.data);
-            showToast({ message: `${data.title} successfully added`, type: 'success' })
+            showToast({ message: `${data.title} successfully edited`, type: 'success' })
+            nav('/?myPosts=true')
         } catch (error) {
             console.log('Error adding article:', error);
             error.response.data.message.forEach(e => showToast({ message: e }))
@@ -55,19 +61,10 @@ export default () => {
         }));
     };
 
-    const handleCategoryChange = (e) => {
-        const { value } = e.target;
-        const newCategories = data.Categories
-        newCategories.push(+value)
-        setData(prevData => ({
-            ...prevData,
-            Categories: newCategories
-        }))
-    }
     return (
         <div className="h-[80vh] flex justify-center items-center text-white">
             <form className="max-w-sm mx-auto w-full" onSubmit={handleSubmit}>
-                <h1 className="text-3xl pb-10 text-center">Add Articles</h1>
+                <h1 className="text-3xl pb-10 text-center">Edit Articles</h1>
 
                 <div className="relative z-0 w-full mb-5 group">
                     <input
@@ -114,7 +111,7 @@ export default () => {
                     name="categoryId"
                     className="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     value={data.categoryId}
-                    onChange={handleCategoryChange}
+                    onChange={handleChange}
                 >
                     <option value='' name='categoryId'>-- Select Category --</option>
                     {categories.map((e, i) => <option value={e.id} key={i} name='categoryId'>{e.name}</option>)}

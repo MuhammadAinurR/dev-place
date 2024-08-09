@@ -8,6 +8,7 @@ import PostForm from "./pages/PostForm";
 import ComponentGenerator from "./pages/ComponentGenerator";
 import CodeConverter from "./pages/CodeConverter";
 import Guides from "./pages/Guides";
+import EditForm from "./pages/EditForm";
 
 
 const router = createBrowserRouter([
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
             {
                 path: 'guide',
                 element: <Guides />
+            },
+            {
+                path: 'posts/:id/edit',
+                element: <EditForm />
             }
         ]
     },
