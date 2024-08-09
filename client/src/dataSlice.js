@@ -1,21 +1,17 @@
-// src/dataSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import request from './utils/axios';
 
-// Define an initial state
 const initialState = {
   data: [],
   loading: false,
   error: null,
 };
 
-// Create an async thunk for data fetching
 export const fetchData = createAsyncThunk('data/fetchData', async () => {
   const response = await request.get('/github-trending');
   return response.data;
 });
 
-// Create a slice of the store
 const dataSlice = createSlice({
   name: 'data',
   initialState,
