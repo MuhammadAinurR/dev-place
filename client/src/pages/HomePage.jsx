@@ -43,7 +43,7 @@ export default () => {
                 }
             });
             setData(prevData => prevData.filter(article => article.id !== id));
-            console.log(response)
+
             showToast({ message: response.data.message, type: 'success' })
         } catch (error) {
             console.log('Error deleting article:', error);
