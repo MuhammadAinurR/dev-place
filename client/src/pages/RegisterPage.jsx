@@ -48,6 +48,12 @@ export default () => {
             console.log(error)
         }
     }
+
+    const loginWithGitHub = () => {
+        const clientID = import.meta.env.VITE_GITHUB_CLIENT_ID;
+        const redirectURI = 'http://localhost:5173/login';
+        window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientID}&redirect_uri=${redirectURI}`;
+    };
     return (
         <div className="bg-[#0E1217] w-screen h-screen p-5 flex flex-col justify-between items-center">
             <p className="text-white text-xl">Dev Place</p>
@@ -66,6 +72,9 @@ export default () => {
                         }}
                     />;
                 </div>
+
+                {/* Github Login */}
+                <div className="bg-gray-700 text-white p-2 rounded-md text-center hover:cursor-pointer hover:bg-gray-800" onClick={loginWithGitHub}>Sign Up with GitHub</div>;
 
                 <div className="flex items-center justify-center">
                     <div className="border-t border-[#2D323C] flex-grow"></div>
