@@ -78,14 +78,16 @@ export default () => {
                                     src={e.imgUrl}
                                     alt={e.title}
                                 />
-                                <div className="grid grid-cols-2 mt-1 text-[#545A69]">
-                                    <Link to={`/posts/${e.id}/edit`} className="border-r-2 border-gray-700 hover:text-white text-center" >
-                                        Edit
-                                    </Link>
-                                    <Link onClick={() => handleDelete(e.id)} className="hover:text-white text-center">
-                                        Delete
-                                    </Link>
-                                </div>
+                                {isMyPage &&
+                                    <div className="grid grid-cols-2 mt-1 text-[#545A69]">
+                                        <Link to={`/posts/${e.id}/edit`} className="border-r-2 border-gray-700 hover:text-white text-center" >
+                                            Edit
+                                        </Link>
+                                        <Link onClick={() => handleDelete(e.id)} className="hover:text-white text-center">
+                                            Delete
+                                        </Link>
+                                    </div>
+                                }
                             </div>
                         </div>
                     );

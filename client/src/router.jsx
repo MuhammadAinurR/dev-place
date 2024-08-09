@@ -9,6 +9,7 @@ import ComponentGenerator from "./pages/ComponentGenerator";
 import CodeConverter from "./pages/CodeConverter";
 import Guides from "./pages/Guides";
 import EditForm from "./pages/EditForm";
+import GithubTrending from "./pages/GithubTrending";
 
 
 const router = createBrowserRouter([
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
             {
                 path: 'posts/:id/edit',
                 element: <EditForm />
+            },
+            {
+                path: 'github-trending',
+                element: <GithubTrending />
             }
         ]
     },

@@ -14,21 +14,22 @@ export default () => {
                     <div className="w-full hover:bg-[#2D323C]">
                         <Link to='/' className="hover:text-white ">- Explore</Link>
                     </div>
-                    <br />
                     <Link to='/tags' className="hover:text-white hover:bg-[#2D323C]">- Tags</Link>
                     <p className="hover:text-white hover:bg-[#2D323C]">- Source</p>
-                    <p className="hover:text-white hover:bg-[#2D323C]">- Github Trending</p>
+                    <div className="hover:bg-[#2D323C]">
+                        <Link to='/github-trending' className="hover:text-white ">- Github Trending</Link>
+                    </div>
                     <br />
                     <p>Ai</p>
                     <p className="hover:text-white hover:bg-[#2D323C]">- Chat</p>
                     <p className="hover:text-white hover:bg-[#2D323C]">- Code Solver</p>
-                    <div>
+                    <div className="hover:bg-[#2D323C]">
                         <Link to='/guide' className="hover:text-white hover:bg-[#2D323C]">- Guides</Link>
                     </div>
-                    <div>
-                        <Link to='/code-converter' className="hover:text-white hover:bg-[#2D323C]">- Code Language Convert</Link>
+                    <div className="hover:bg-[#2D323C]">
+                        <Link to='/code-converter' className="hover:text-white">- Code Language Convert</Link>
                     </div>
-                    <div>
+                    <div className="hover:bg-[#2D323C]">
                         <Link to='/component-generator' className="hover:text-white hover:bg-[#2D323C]">- Component Generator</Link>
                     </div>
                     <br />
