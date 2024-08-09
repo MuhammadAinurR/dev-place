@@ -10,4 +10,4 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(routes);
 
-app.listen(port, () => console.log(`server is running on http://localhost:${port}`));
+module.exports = app;

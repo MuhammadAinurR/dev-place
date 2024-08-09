@@ -38,6 +38,7 @@ const getPostById = async (req, res, next) => {
                 through: { attributes: [] }
             }
         })
+        if (!post) throw { name: 'NotFound' };
         res.status(200).json(post)
     } catch (error) {
         next(error)
