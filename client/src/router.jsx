@@ -10,6 +10,7 @@ import CodeConverter from "./pages/CodeConverter";
 import Guides from "./pages/Guides";
 import EditForm from "./pages/EditForm";
 import GithubTrending from "./pages/GithubTrending";
+import CodeSolver from "./pages/CodeSolver";
 
 
 const router = createBrowserRouter([
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
             {
                 path: 'code-converter',
                 element: <CodeConverter />
+            },
+            {
+                path: 'code-solver',
+                element: <CodeSolver />
             },
             {
                 path: 'guide',

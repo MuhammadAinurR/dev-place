@@ -8,7 +8,7 @@ const getPosts = async (req, res, next) => {
             include: [
                 {
                     model: Category,
-                    attributes: ['name'],
+                    attributes: ['name', 'id'],
                     through: { attributes: [] }
                 },
                 {

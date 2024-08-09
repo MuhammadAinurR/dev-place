@@ -23,6 +23,17 @@ const codeConverter = async (req, res, next) => {
         next(error)
     }
 }
+const codeSolver = async (req, res, next) => {
+    const { input, errorMessage } = req.body;
+    try {
+        const prompt = `my code = ${input}. error message = ${errorMessage}. explain why this erro can happen and give me solution`;
+        const result = await model.generateContent(prompt);
+
+        return res.send(result.response.text())
+    } catch (error) {
+        next(error)
+    }
+}
 
 const guide = async (req, res, next) => {
     const { input } = req.body;
@@ -36,4 +47,4 @@ const guide = async (req, res, next) => {
     }
 }
 
-module.exports = { componentGenerator, codeConverter, guide }
+module.exports = { componentGenerator, codeConverter, guide, codeSolver }

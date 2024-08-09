@@ -58,8 +58,9 @@ export default () => {
         return newLines.join('\n');
     }
     return (
-        <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4 text-white">Code Converter</h1>
+        <div className="flex flex-col gap-5">
+
+            <p className="text-white font-bold text-3xl">Code Converter</p>
             <div className="mb-4">
                 <label htmlFor="input" className="block text-sm font-medium text-white">Enter code:</label>
                 <input
@@ -94,7 +95,7 @@ export default () => {
             <button
                 onClick={handleSubmit}
                 disabled={loading}
-                className="inline-flex items-center px-6 py-2.5 bg-[#737b8e] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#555a69] hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out"
+                className="w-[100px] inline-flex items-center px-6 py-2.5 bg-[#737b8e] text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-[#555a69] hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out"
             >
                 {loading ? 'Loading...' : 'Generate'}
             </button>

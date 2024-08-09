@@ -10,10 +10,9 @@ export default () => {
     const [isMyPage, setIsMyPage] = useState(false);
 
     useEffect(() => {
-        console.log({ category, search })
-        console.log('hello')
         const fetchData = async () => {
             try {
+                setIsMyPage(false)
                 let endpoint = '/posts';
                 if (search) {
                     const searchParams = new URLSearchParams(search);
@@ -24,10 +23,8 @@ export default () => {
                     } else if (searchParams.has('myPosts')) {
                         endpoint += `?myPosts=true;`
                         setIsMyPage(true)
-                    }
+                    } 
                 }
-
-                console.log(endpoint);
                 const { data } = await request.get(endpoint, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                 });
@@ -37,9 +34,7 @@ export default () => {
             }
         };
         fetchData()
-    }, [search, category])
-
-
+    }, [search, category, isMyPage])
     const handleDelete = async (id) => {
         try {
             const response = await request.delete(`/posts/${id}`, {
@@ -57,7 +52,7 @@ export default () => {
 
     return (
         <div className={`bg-[#0E1217] ${data.length ? '' : 'h-screen'}`}>
-            <div className="grid grid-cols-4 justify-center items-center gap-6 p-20 mx-10">
+            <div className="grid grid-cols-4 justify-center items-center gap-6">
                 {data.map((e, i) => {
                     const categories = e.Categories || [];
                     return (
@@ -70,7 +65,7 @@ export default () => {
                                 <p>{formatRelativeTime(e.createdDate)}</p>
                                 <div className="flex gap-2">
                                     {categories.map((category, j) => (
-                                        <p className="text-[#757D92] ml-1" key={j}>#{category.name}</p>
+                                        <Link to={`/?category=${category.id}`} className="text-[#757D92] ml-1" key={j}>#{category.name}</Link>
                                     ))}
                                 </div>
                                 <img

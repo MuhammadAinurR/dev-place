@@ -17,13 +17,13 @@ export default () => {
     }, [])
     console.log(categories)
     return (
-        <div className="p-5">
-            <p className="text-white font-bold p">All tags</p>
+        <div className="flex flex-col gap-5">
+            <p className="text-white font-bold text-3xl">All tags</p>
             <div className="flex gap-4 flex-wrap">
             {categories.map((e, i) => {
                 console.log(e.name)
                 return (
-                    <Link to={`/?category=${e.id}`} className="text-[#A8B3CF] hover:text-white text-sm bg-[#21262E] w-auto py-1 px-3 rounded-md" key={i}>#{e.name}</Link>
+                    <Link to={`/?category=${e.id}`} className="text-[#A8B3CF] hover:text-white text-sm bg-[#21262E] w-auto py-1 px-3 rounded-md text-xl" key={i}>#{e.name}</Link>
                 )
             })}
             </div>
