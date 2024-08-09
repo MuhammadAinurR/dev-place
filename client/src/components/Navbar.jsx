@@ -33,9 +33,9 @@ const Navbar = () => {
     }, []);
 
     // Handle search query
-    // useEffect(() => {
-    //     nav("/?search=" + search);
-    // }, [search, nav]);
+    useEffect(() => {
+        nav("/?search=" + search);
+    }, [search, nav]);
 
     // Handle keyboard shortcut
     useEffect(() => {
